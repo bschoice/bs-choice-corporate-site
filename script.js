@@ -1,7 +1,6 @@
 const navToggle = document.querySelector('.nav-toggle');
 const globalNav = document.querySelector('.global-nav');
 const navLinks = document.querySelectorAll('.global-nav a');
-const contactForm = document.querySelector('.contact-form');
 
 const closeNav = () => {
   navToggle.setAttribute('aria-expanded', 'false');
@@ -24,9 +23,4 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 920) {
     closeNav();
   }
-});
-
-contactForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  alert('現在、送信機能は準備中です。お問い合わせ内容のデザイン確認用フォームです。');
 });
