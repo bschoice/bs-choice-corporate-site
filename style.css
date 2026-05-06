@@ -250,7 +250,7 @@ h3 {
 h1 {
   max-width: 760px;
   margin-bottom: 24px;
-  font-size: clamp(2.35rem, 6vw, 4.65rem);
+  font-size: clamp(2.2rem, 5.4vw, 4.45rem);
   letter-spacing: 0.02em;
 }
 
@@ -353,7 +353,8 @@ h3 {
 .section-text,
 .split-content p,
 .section-heading p,
-.contact-copy p {
+.contact-copy p,
+.contact-card p {
   color: var(--muted);
 }
 
@@ -568,7 +569,7 @@ h3 {
   border-radius: 18px;
 }
 
-.contact-form {
+.contact-card {
   display: grid;
   gap: 18px;
   padding: 34px;
@@ -578,42 +579,35 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.contact-form label {
-  display: grid;
-  gap: 8px;
-  color: var(--brown);
+.contact-card-label {
+  margin-bottom: -6px;
+  color: var(--gold-dark) !important;
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.contact-form span {
-  font-size: 0.92rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px 16px;
+.contact-mail {
   color: var(--brown);
-  background: var(--white);
-  border: 1px solid rgba(159, 123, 56, 0.22);
-  border-radius: 14px;
-  outline: none;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
-.contact-form textarea {
-  resize: vertical;
+.contact-mail:hover,
+.contact-mail:focus-visible,
+.notice a:hover,
+.notice a:focus-visible {
+  color: var(--gold-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 4px rgba(201, 165, 92, 0.14);
-}
-
-.form-button {
-  width: 100%;
-  cursor: pointer;
+.contact-button {
+  width: fit-content;
 }
 
 .site-footer {
@@ -743,12 +737,18 @@ h3 {
     padding: 116px 0 64px;
   }
 
+  h1 {
+    font-size: clamp(1.95rem, 10vw, 2.85rem);
+    line-height: 1.38;
+  }
+
   .hero-lead {
     font-size: 0.98rem;
   }
 
   .hero-actions,
-  .button {
+  .button,
+  .contact-button {
     width: 100%;
   }
 
@@ -761,7 +761,7 @@ h3 {
   }
 
   .service-card,
-  .contact-form {
+  .contact-card {
     padding: 26px 22px;
     border-radius: 22px;
   }
