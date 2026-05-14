@@ -268,7 +268,14 @@ h3 {
   max-width: 620px;
   margin-bottom: 34px;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+}
+
+.hero-lead span {
+  display: block;
 }
 
 .hero-actions {
@@ -743,7 +750,9 @@ h3 {
   }
 
   .hero-lead {
-    font-size: 0.98rem;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
   }
 
   .hero-actions,
