@@ -182,8 +182,8 @@ textarea {
 
 .hero-bg {
   position: absolute;
-  inset: 104px max(32px, 7vw) auto auto;
-  width: min(410px, 38vw);
+  inset: 112px max(48px, calc((100% - 1280px) / 2 + 58px)) auto auto;
+  width: min(400px, 34vw);
   aspect-ratio: 1;
   background: linear-gradient(180deg, rgba(255, 248, 230, 0.98), rgba(225, 188, 122, 0.38));
   border: 1px solid rgba(255, 255, 255, 0.85);
@@ -325,7 +325,7 @@ h3 {
 
 .hero-card {
   position: absolute;
-  right: max(24px, calc((100% - 1120px) / 2));
+  right: max(40px, calc((100% - 1280px) / 2 + 38px));
   bottom: 96px;
   z-index: 3;
   width: min(300px, calc(100% - 48px));
@@ -653,10 +653,20 @@ h3 {
 
 @media (min-width: 921px) {
   .hero-content {
-    max-width: min(700px, calc(100% - 360px));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.58fr);
+    gap: clamp(28px, 5vw, 82px);
+    width: min(1280px, calc(100% - clamp(48px, 8vw, 112px)));
+    padding-right: clamp(18px, 2.4vw, 34px);
+    padding-left: clamp(0px, 0.8vw, 10px);
+  }
+
+  .hero-content > * {
+    grid-column: 1;
   }
 
   .hero-title {
+    max-width: min(8.6em, 100%);
     white-space: nowrap;
   }
 }
