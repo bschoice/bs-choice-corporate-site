@@ -288,6 +288,10 @@ h1 {
   text-wrap: balance;
 }
 
+.hero-title-mobile {
+  display: none;
+}
+
 h2 {
   margin-bottom: 22px;
   color: var(--navy);
@@ -819,10 +823,18 @@ h3 {
 
   .hero-title {
     margin-bottom: 0;
-    font-size: clamp(2.75rem, 15vw, 4.35rem);
-    line-height: 1.24;
+    font-size: clamp(2.55rem, 12.8vw, 3.85rem);
+    line-height: 1.22;
     letter-spacing: 0.05em;
     white-space: normal;
+  }
+
+  .hero-title-desktop {
+    display: none;
+  }
+
+  .hero-title-mobile {
+    display: inline-block;
   }
 
   .hero-lead {
