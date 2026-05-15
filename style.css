@@ -416,13 +416,19 @@ h3 {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 26px;
+  align-items: stretch;
 }
 
 .service-card {
   position: relative;
-  padding: 38px 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 260px;
+  padding: 44px 32px 38px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -440,24 +446,24 @@ h3 {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-.card-icon {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 24px;
-  color: var(--deep-blue);
-  font-family: var(--font-serif);
+.service-card h3 {
+  min-height: 2.9em;
+  margin-bottom: 18px;
+  font-size: clamp(1.16rem, 1.6vw, 1.25rem);
   font-weight: 600;
-  background: linear-gradient(145deg, #ffffff, #e6f0f6);
-  border: 1px solid rgba(23, 76, 118, 0.14);
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.58), 0 12px 26px rgba(7, 26, 47, 0.08);
+  line-height: 1.45;
+  letter-spacing: 0.035em;
+  text-wrap: balance;
 }
 
 .service-card p {
+  flex: 1 1 auto;
+  max-width: 30em;
   margin-bottom: 0;
-  color: var(--muted);
+  color: #5a6b7b;
+  font-size: 0.98rem;
+  line-height: 2;
+  letter-spacing: 0.025em;
 }
 
 
@@ -530,8 +536,8 @@ h3 {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 100%;
-  padding: 38px 26px 32px;
+  min-height: 320px;
+  padding: 42px 28px 34px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 253, 0.94));
   border: 1px solid rgba(15, 55, 91, 0.11);
@@ -541,20 +547,11 @@ h3 {
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
-.link-card:nth-child(2) {
-  transform: translateY(-12px);
-}
-
 .link-card:hover,
 .link-card:focus-within {
   border-color: rgba(213, 179, 106, 0.3);
   box-shadow: 0 30px 68px rgba(5, 25, 45, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.95);
   transform: translateY(-6px);
-}
-
-.link-card:nth-child(2):hover,
-.link-card:nth-child(2):focus-within {
-  transform: translateY(-18px);
 }
 
 .link-card::before {
@@ -578,29 +575,12 @@ h3 {
   pointer-events: none;
 }
 
-.link-card-number {
-  display: inline-grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 22px;
-  color: var(--deep-blue);
-  font-family: var(--font-serif);
-  font-size: 0.86rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(242, 217, 156, 0.26));
-  border: 1px solid rgba(213, 179, 106, 0.52);
-  border-radius: 50%;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 24px rgba(7, 26, 47, 0.08);
-}
-
 .link-card-title {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  min-height: 42px;
-  margin-bottom: 16px;
+  min-height: 4.1em;
+  margin-bottom: 18px;
 }
 
 .link-card-icon {
@@ -628,17 +608,21 @@ h3 {
 
 .link-card h3 {
   margin-bottom: 0;
-  font-size: clamp(1.03rem, 1.26vw, 1.1rem);
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  padding-top: 0.28em;
+  font-size: clamp(1.04rem, 1.25vw, 1.12rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.018em;
 }
 
 .link-card p {
   flex: 1 1 auto;
-  margin-bottom: 30px;
-  color: var(--muted);
-  line-height: 1.9;
+  max-width: 30em;
+  margin-bottom: 32px;
+  color: #5a6b7b;
+  font-size: 0.96rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
 }
 
 .link-button {
@@ -1004,22 +988,23 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .service-grid,
   .link-card-grid {
     grid-auto-rows: auto;
   }
 
-  .link-card h3 {
-    white-space: normal;
+  .service-card,
+  .link-card {
+    min-height: auto;
+  }
+
+  .service-card h3,
+  .link-card-title {
+    min-height: auto;
   }
 
   .links {
     padding: 104px 0;
-  }
-
-  .link-card:nth-child(2),
-  .link-card:nth-child(2):hover,
-  .link-card:nth-child(2):focus-within {
-    transform: none;
   }
 
   .link-card:hover,
@@ -1158,8 +1143,14 @@ h3 {
     opacity: 0.56;
   }
 
+  .service-card p,
+  .link-card p {
+    line-height: 1.95;
+  }
+
   .link-card-title {
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 16px;
   }
 
   .link-button {
