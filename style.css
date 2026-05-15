@@ -519,7 +519,8 @@ h3 {
 
 .link-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 28px;
   align-items: stretch;
 }
@@ -528,8 +529,9 @@ h3 {
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-height: 100%;
-  padding: 38px 30px 32px;
+  padding: 38px 26px 32px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 253, 0.94));
   border: 1px solid rgba(15, 55, 91, 0.11);
@@ -596,8 +598,9 @@ h3 {
 .link-card-title {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 12px;
+  min-height: 42px;
+  margin-bottom: 16px;
 }
 
 .link-card-icon {
@@ -625,11 +628,14 @@ h3 {
 
 .link-card h3 {
   margin-bottom: 0;
-  font-size: 1.2rem;
+  font-size: clamp(1.03rem, 1.26vw, 1.1rem);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .link-card p {
-  flex: 1;
+  flex: 1 1 auto;
   margin-bottom: 30px;
   color: var(--muted);
   line-height: 1.9;
@@ -637,6 +643,7 @@ h3 {
 
 .link-button {
   align-self: flex-start;
+  margin-top: auto;
   min-width: 0;
   min-height: 50px;
   padding: 10px 24px;
@@ -997,6 +1004,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .link-card-grid {
+    grid-auto-rows: auto;
+  }
+
+  .link-card h3 {
+    white-space: normal;
+  }
+
   .links {
     padding: 104px 0;
   }
@@ -1144,7 +1159,7 @@ h3 {
   }
 
   .link-card-title {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .link-button {
