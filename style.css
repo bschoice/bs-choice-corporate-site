@@ -19,6 +19,13 @@
   --radius: 30px;
   --font-serif: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
   --font-sans: "Zen Kaku Gothic New", system-ui, sans-serif;
+  --button-bg: linear-gradient(135deg, #0c3156, var(--blue) 58%, #1f638d);
+  --button-hover-bg: linear-gradient(135deg, #0c3156, var(--blue) 58%, #1f638d);
+  --button-color: var(--white);
+  --button-border: rgba(255, 255, 255, 0.18);
+  --button-hover-border: rgba(255, 255, 255, 0.26);
+  --button-shadow: 0 16px 32px rgba(7, 26, 47, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  --button-hover-shadow: 0 18px 36px rgba(7, 26, 47, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 * {
@@ -160,11 +167,19 @@ textarea {
 
 .nav-contact {
   padding: 9px 18px;
-  color: var(--deep-blue) !important;
-  border: 1px solid rgba(23, 76, 118, 0.18);
+  color: var(--button-color) !important;
+  border: 1px solid var(--button-border);
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(223, 234, 242, 0.64));
-  box-shadow: 0 8px 22px rgba(7, 26, 47, 0.07);
+  background: var(--button-bg);
+  box-shadow: 0 10px 24px rgba(7, 26, 47, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.nav-contact:hover,
+.nav-contact:focus-visible {
+  color: var(--button-color) !important;
+  background: var(--button-hover-bg);
+  border-color: var(--button-hover-border);
+  box-shadow: var(--button-hover-shadow);
 }
 
 .nav-toggle {
@@ -327,28 +342,36 @@ h3 {
   min-width: 154px;
   min-height: 52px;
   padding: 12px 26px;
+  color: var(--button-color);
   font-weight: 700;
+  border: 1px solid var(--button-border);
   border-radius: 999px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  background: var(--button-bg);
+  box-shadow: var(--button-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .button:hover,
 .button:focus-visible {
+  color: var(--button-color);
+  background: var(--button-hover-bg);
+  border-color: var(--button-hover-border);
+  box-shadow: var(--button-hover-shadow);
   transform: translateY(-2px);
 }
 
 .button.primary {
-  color: var(--white);
-  background: linear-gradient(135deg, #0c3156, var(--blue) 58%, #1f638d);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 16px 32px rgba(7, 26, 47, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: var(--button-color);
+  background: var(--button-bg);
+  border-color: var(--button-border);
+  box-shadow: var(--button-shadow);
 }
 
 .button.secondary {
-  color: var(--deep-blue);
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(23, 76, 118, 0.16);
-  box-shadow: 0 12px 28px rgba(7, 26, 47, 0.08);
+  color: var(--button-color);
+  background: var(--button-bg);
+  border-color: var(--button-border);
+  box-shadow: var(--button-shadow);
 }
 
 .section {
@@ -617,11 +640,10 @@ h3 {
   min-width: 0;
   min-height: 50px;
   padding: 10px 24px;
-  color: var(--deep-blue);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(242, 217, 156, 0.34));
-  border: 1px solid rgba(213, 179, 106, 0.42);
-  box-shadow: 0 13px 28px rgba(7, 26, 47, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  color: var(--button-color);
+  background: var(--button-bg);
+  border-color: var(--button-border);
+  box-shadow: var(--button-shadow);
 }
 
 .link-button::after {
@@ -633,10 +655,10 @@ h3 {
 
 .link-button:hover,
 .link-button:focus-visible {
-  color: var(--white);
-  background: linear-gradient(135deg, #0c3156, var(--blue) 58%, #1f638d);
-  border-color: rgba(255, 255, 255, 0.26);
-  box-shadow: 0 18px 36px rgba(7, 26, 47, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: var(--button-color);
+  background: var(--button-hover-bg);
+  border-color: var(--button-hover-border);
+  box-shadow: var(--button-hover-shadow);
 }
 
 .link-button:hover::after,
