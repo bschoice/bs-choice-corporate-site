@@ -1144,7 +1144,11 @@ h3 {
   }
 
   .links .section-heading p:not(.eyebrow) {
-    line-height: 1.9;
+    max-width: 27em;
+    padding-right: 4px;
+    padding-left: 4px;
+    text-align: left;
+    line-height: 1.95;
   }
 
   .service-card,
