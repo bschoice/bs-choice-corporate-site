@@ -1017,6 +1017,14 @@ h3 {
     gap: 42px;
   }
 
+  .materials .split-content {
+    order: 1;
+  }
+
+  .materials .material-visual {
+    order: 2;
+  }
+
   .service-grid,
   .link-card-grid {
     grid-template-columns: 1fr;
