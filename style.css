@@ -1170,8 +1170,27 @@ h3 {
     line-height: 1.95;
   }
 
+  .links .link-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .links .link-card p {
+    width: min(100%, 25rem);
+    max-width: none;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-left: auto;
+    padding-right: 4px;
+    padding-left: 4px;
+    text-align: left;
+    line-height: 2;
+  }
+
   .link-card-title {
     align-items: flex-start;
+    justify-content: center;
+    width: 100%;
     margin-bottom: 16px;
   }
 
