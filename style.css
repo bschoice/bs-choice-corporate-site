@@ -860,16 +860,6 @@ h3 {
   align-items: start;
 }
 
-.notice {
-  padding: 18px 20px;
-  margin-top: 30px;
-  color: var(--deep-blue);
-  font-weight: 700;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(226, 238, 245, 0.86));
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: 0 12px 28px rgba(7, 26, 47, 0.06);
-}
 
 .contact-card {
   display: grid;
@@ -900,9 +890,7 @@ h3 {
 }
 
 .contact-mail:hover,
-.contact-mail:focus-visible,
-.notice a:hover,
-.notice a:focus-visible {
+.contact-mail:focus-visible {
   color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 4px;
