@@ -759,12 +759,14 @@ h3 {
 }
 
 .oem-visual {
+  --oem-frame-inset: clamp(24px, 4vw, 44px);
+
   display: grid;
-  padding: clamp(24px, 4vw, 44px);
+  padding: var(--oem-frame-inset);
   background:
     radial-gradient(circle at 50% 34%, rgba(245, 179, 88, 0.28), transparent 10rem),
     linear-gradient(145deg, #06162a, #0b3155 62%, #174c76);
-  place-items: center;
+  place-items: stretch;
 }
 
 .oem-visual::before {
@@ -772,13 +774,16 @@ h3 {
 }
 
 .oem-visual img {
-  position: relative;
+  position: absolute;
+  inset: var(--oem-frame-inset);
   z-index: 1;
   display: block;
-  width: min(100%, 360px);
-  max-height: 340px;
-  object-fit: contain;
-  filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.28));
+  width: calc(100% - (var(--oem-frame-inset) * 2));
+  height: calc(100% - (var(--oem-frame-inset) * 2));
+  object-fit: cover;
+  object-position: center;
+  border-radius: 28px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
 }
 
 .check-list {
@@ -1224,8 +1229,10 @@ h3 {
   }
 
   .oem-visual {
+    --oem-frame-inset: 28px;
+
     min-height: 300px;
-    padding: 28px;
+    padding: var(--oem-frame-inset);
   }
 
   .oem-visual::before {
@@ -1234,8 +1241,9 @@ h3 {
   }
 
   .oem-visual img {
-    width: min(86%, 260px);
-    max-height: 240px;
+    width: calc(100% - (var(--oem-frame-inset) * 2));
+    height: calc(100% - (var(--oem-frame-inset) * 2));
+    border-radius: 20px;
   }
 
   .footer-inner {
