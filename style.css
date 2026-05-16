@@ -1191,15 +1191,32 @@ h3 {
     line-height: 2;
   }
 
-  .link-card-title {
-    align-items: flex-start;
-    justify-content: center;
+  .links .link-card-title {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
     width: 100%;
-    margin-bottom: 16px;
+    min-height: auto;
+    margin-bottom: 18px;
+    text-align: center;
   }
 
-  .link-button {
-    align-self: stretch;
+  .links .link-card-icon {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .links .link-card h3 {
+    width: 100%;
+    padding-top: 0;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .links .link-button {
+    align-self: center;
+    width: auto;
   }
 
   .company-table,
