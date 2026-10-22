@@ -1,1 +1,8 @@
-const menuButton=document.querySelector('.menu-button');const nav=document.querySelector('#global-nav');menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));const revealTargets=document.querySelectorAll('.section-label,.section h2,.principles,.business-list,.split-content,.use-cases,.process-wrap,.artist-actions,.company-grid dl');revealTargets.forEach(el=>el.classList.add('reveal'));if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});revealTargets.forEach(el=>observer.observe(el))}else{revealTargets.forEach(el=>el.classList.add('visible'))}
+const menuButton=document.querySelector('.menu-button');
+const nav=document.querySelector('#global-nav');
+function setMenu(open){menuButton.setAttribute('aria-expanded',String(open));menuButton.querySelector('.sr-only').textContent=open?'メニューを閉じる':'メニューを開く';nav.classList.toggle('open',open)}
+menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){setMenu(false);menuButton.focus()}});
+document.addEventListener('click',event=>{if(!event.target.closest('.header'))setMenu(false)});
+matchMedia('(min-width:1181px)').addEventListener('change',()=>setMenu(false));
